@@ -20,8 +20,6 @@ int main() {
     //     // Установим формат вывода чисел
     //     std::cout << std::fixed << std::setprecision(2);
 
-    //     std::cout << '\n' << "================================================================================" << "\n\n";
-
     //     // Вывод до масштабирования
     //     std::cout << "Before scaling:\n";
     //     const auto &items = container.components();
@@ -41,7 +39,8 @@ int main() {
     //     // Вывод после масштабирования
     //     std::cout << "\nAfter scaling by 2.0:\n";
     //     for (const auto &p : items) {
-    //         if (const CompositeShape *comp = dynamic_cast<const CompositeShape*>(p.get())) {
+    //         if (const CompositeShape *comp =
+    //dynamic_cast<const CompositeShape*>(p.get())) {
     //             shapes_ui::printComposite(std::cout, *comp);
     //         } else {
     //             shapes_ui::printSimple(std::cout, *p);
