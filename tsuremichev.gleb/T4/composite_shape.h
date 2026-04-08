@@ -19,11 +19,9 @@ public:
 
   void addShape(std::unique_ptr<Shape> shape);
 
-  // misc
-  // Point getLeftLow() const override;
-  // Point getRightTop() const override;
+
 private:
   std::vector<std::unique_ptr<Shape>> shapes_;
 };
 
-#endif //T4_COMPOSITE_SHAPE_H
+#endif

@@ -40,7 +40,8 @@ void CompositeShape::move(double dx, double dy)
   }
 }
 
-void CompositeShape::scale(double koef) {
+void CompositeShape::scale(double koef)
+{
   if (shapes_.empty())
   {
     return;
@@ -56,9 +57,6 @@ void CompositeShape::scale(double koef) {
     shape->move(dx, dy);
   }
 }
-
-
-
 
 
 std::string CompositeShape::getName() const
