@@ -7,6 +7,7 @@
 
 class Shape
 {
+    public:
     virtual double getArea() = 0; 
     virtual Point getCenter() = 0;
     virtual void move(double, double) = 0;
