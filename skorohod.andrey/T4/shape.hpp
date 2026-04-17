@@ -8,11 +8,11 @@
 class Shape
 {
     public:
-    virtual double getArea() = 0; 
-    virtual Point getCenter() = 0;
+    virtual double getArea() const = 0; 
+    virtual Point getCenter() const = 0;
     virtual void move(double, double) = 0;
     virtual void scale(double) = 0;
-    virtual std::string getName() = 0;
+    virtual std::string getName() const = 0;
 };
 
 #endif

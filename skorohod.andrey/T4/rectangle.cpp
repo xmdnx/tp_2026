@@ -30,10 +30,10 @@ void Rectangle::scale(double k)
     double dx = center.x - Vertex1_.x;
     double dy = center.y - Vertex1_.y;
 
-    Vertex1_.x -= dx;
-    Vertex2_.x -= dx;
-    Vertex1_.y += dy;
-    Vertex2_.y += dy;
+    Vertex1_.x -= dx * k;
+    Vertex2_.x -= dx * k;
+    Vertex1_.y += dy * k;
+    Vertex2_.y += dy * k;
 }
 
 std::string Rectangle::getName() const
