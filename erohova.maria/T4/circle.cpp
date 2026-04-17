@@ -32,6 +32,6 @@ std::string Circle::getName() const{
 
 void Circle::print() const{
   std::cout << std::fixed << std::setprecision(2);
-  std::cout << "[" << getName() << ", (" << center_.x << ", " << center_.y 
+  std::cout << "[" << getName() << ", (" << center_.x << ", " << center_.y
             << "), " << getArea() << "]" << std::endl;
 }

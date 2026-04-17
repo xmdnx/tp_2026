@@ -16,7 +16,7 @@ int main(){
   auto composite = std::make_shared<CompositeShape>();
   composite->addShape(std::make_shared<Rectangle>(Point{1.0, 1.0}, Point{3.0, 3.0}));
   composite->addShape(std::make_shared<Circle>(Point{2.0, 2.0}, 1.0));
-  
+
   shapes.push_back(composite);
 
   std::cout << "BEFORE SCALING:" << std::endl;

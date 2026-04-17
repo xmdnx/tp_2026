@@ -12,7 +12,7 @@ void CompositeShape::addShape(std::shared_ptr<Shape> shape){
 double CompositeShape::getArea() const{
   double totalArea = 0.0;
   for (const auto& shape : shapes_) {
-    totalArea += shape->getArea(); 
+    totalArea += shape->getArea();
   }
   return totalArea;
 }
@@ -62,8 +62,8 @@ void CompositeShape::print() const{
   std::cout << std::fixed << std::setprecision(2);
   std::cout << "[COMPOSITE, (" << c.x << ", " << c.y << "), " << getArea() << ":" << std::endl;
   for (const auto& shape : shapes_) {
-    std::cout << "  "; 
-    shape->print(); 
+    std::cout << "  ";
+    shape->print();
   }
   std::cout << "]" << std::endl;
 }
