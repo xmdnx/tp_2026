@@ -2,12 +2,14 @@
 #define COMPOSITE_SHAPE_HPP
 
 #include <vector>
+#include <string>
+#include <memory>
 #include "shape.hpp"
 
 class CompositeShape : public Shape
 {
     public:
-    CompositeShape();
+    CompositeShape() = default;
     ~CompositeShape() = default;
 
     double getArea() const; 
@@ -16,9 +18,10 @@ class CompositeShape : public Shape
     void scale(double);
     std::string getName() const;
 
+    void addShape(std::unique_ptr<Shape>);
+
     private:
-    std::vector<Shape> shapeContainer_;
-    Point center_;
+    std::vector<std::unique_ptr<Shape>> shapeContainer_;
 };
 
 #endif
