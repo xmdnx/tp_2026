@@ -1,6 +1,6 @@
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(Point& a, Point& b):
+Rectangle::Rectangle(Point a, Point b):
 vertex1_(a),
 vertex2_(b),
 center_({((vertex2_.x + vertex1_.x) / 2.0), ((vertex2_.y + vertex1_.y) / 2.0)})
@@ -31,10 +31,10 @@ void Rectangle::scale(double k)
     double dx = center_.x - vertex1_.x;
     double dy = center_.y - vertex1_.y;
 
-    vertex1_.x -= dx * k;
-    vertex2_.x -= dx * k;
-    vertex1_.y += dy * k;
-    vertex2_.y += dy * k;
+    vertex1_.x -= dx * k / 2;
+    vertex2_.x += dx * k / 2;
+    vertex1_.y -= dy * k / 2;
+    vertex2_.y += dy * k / 2;
 }
 
 std::string Rectangle::getName() const

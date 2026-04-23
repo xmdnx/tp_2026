@@ -70,3 +70,18 @@ Point CompositeShape::getRightUpper() const
 
     return extremeRightUpper;
 }
+
+void CompositeShape::addShape(Shape& shape)
+{
+    shapeContainer_.push_back(&shape);
+}
+
+std::ostream& CompositeShape::print(std::ostream& os) const
+{
+    os << getName() << ' ' << getCenter() << ' ' << getArea() << ":\n";
+    for (auto &i : shapeContainer_)
+    {
+        os << "  " << *i << '\n';
+    }
+    return os;
+}

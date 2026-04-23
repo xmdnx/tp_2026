@@ -1,13 +1,14 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 
+#include <iostream>
 #include "shape.hpp"
 #include "point.hpp"
 
 class Rectangle : public Shape
 {
     public:
-    Rectangle(Point&, Point&);
+    Rectangle(Point, Point);
     ~Rectangle() = default;
 
     double getArea() const; 
@@ -15,7 +16,6 @@ class Rectangle : public Shape
     void move(double, double);
     void scale(double);
     std::string getName() const;
-
 
     Point getLeftLower() const;
     Point getRightUpper() const;

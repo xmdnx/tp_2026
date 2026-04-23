@@ -19,13 +19,15 @@ class CompositeShape : public Shape
     void scale(double);
     std::string getName() const;
 
-    void addShape(std::unique_ptr<Shape>);
+    void addShape(Shape&);
 
     Point getLeftLower() const;
     Point getRightUpper() const;
 
     private:
-    std::vector<std::unique_ptr<Shape>> shapeContainer_;
+    std::ostream& print (std::ostream& os) const;
+
+    std::vector<Shape*> shapeContainer_;
 };
 
 #endif
