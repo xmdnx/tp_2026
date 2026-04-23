@@ -11,7 +11,7 @@ class Rectangle : public Shape
     Rectangle(Point, Point);
     ~Rectangle() = default;
 
-    double getArea() const; 
+    double getArea() const;
     Point getCenter() const;
     void move(double, double);
     void scale(double);

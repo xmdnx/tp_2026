@@ -13,7 +13,7 @@ class CompositeShape : public Shape
     CompositeShape() = default;
     ~CompositeShape() = default;
 
-    double getArea() const; 
+    double getArea() const;
     Point getCenter() const;
     void move(double, double);
     void scale(double);

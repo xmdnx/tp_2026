@@ -10,7 +10,7 @@ class Circle : public Shape
     Circle(Point, double);
     ~Circle() = default;
 
-    double getArea() const; 
+    double getArea() const;
     Point getCenter() const;
     void move(double, double);
     void scale(double);

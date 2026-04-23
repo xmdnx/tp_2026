@@ -8,7 +8,7 @@ double CompositeShape::getArea() const
         sumArea += i->getArea();
     }
     return sumArea;
-} 
+}
 
 Point CompositeShape::getCenter() const
 {
@@ -44,7 +44,6 @@ std::string CompositeShape::getName() const
 {
     return "COMPOSITE";
 }
-
 
 Point CompositeShape::getLeftLower() const
 {
