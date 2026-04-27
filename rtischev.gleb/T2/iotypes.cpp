@@ -1,8 +1,7 @@
 #include "iotypes.hpp"
 
-
 // Реализация оператора для DelimetrIO
-std::istream& operator>>(std::istream& in, DelimetrIO&& dest)
+std::istream &operator>>(std::istream &in, DelimetrIO &&dest)
 {
     std::istream::sentry sentry(in);
     if (!sentry)
@@ -20,7 +19,7 @@ std::istream& operator>>(std::istream& in, DelimetrIO&& dest)
 }
 
 // перегрузка оператора ввода дл¤ структуры UllHexIO
-std::istream& operator>>(std::istream& in, UllHexIO&& dest)
+std::istream &operator>>(std::istream &in, UllHexIO &&dest)
 {
 
     std::istream::sentry sentry(in);
@@ -35,7 +34,7 @@ std::istream& operator>>(std::istream& in, UllHexIO&& dest)
 }
 
 // перегрузка оператора ввода дл¤ структуры RationalIO
-std::istream& operator>>(std::istream& in, RationalIO&& dest)
+std::istream &operator>>(std::istream &in, RationalIO &&dest)
 {
     std::istream::sentry sentry(in);
     if (!sentry)
@@ -43,17 +42,20 @@ std::istream& operator>>(std::istream& in, RationalIO&& dest)
         return in;
     }
 
-    long long num = 0 ;
+    long long num = 0;
     unsigned long long den = 0;
 
     in >> DelimetrIO{'('} >> DelimetrIO{':'} >> DelimetrIO{'N'} >> num;
-    in >> DelimetrIO{':'} >> DelimetrIO{'D'} >> den >> DelimetrIO{':'} >> DelimetrIO{''};
+    in >> DelimetrIO{':'} >> DelimetrIO{'D'} >> den >> DelimetrIO{':'} >> DelimetrIO{')'};
 
     if (in)
     {
-        if (den != 0) {
+        if (den != 0)
+        {
             dest.ref = std::make_pair(num, den);
-        } else {
+        }
+        else
+        {
             in.setstate(std::ios::failbit);
         }
     }
@@ -62,18 +64,18 @@ std::istream& operator>>(std::istream& in, RationalIO&& dest)
 }
 
 // перегрузка оператора ввода дл¤ структуры StringIO
-std::istream& operator>>(std::istream& in, StringIO&& dest)
+std::istream &operator>>(std::istream &in, StringIO &&dest)
 {
     std::istream::sentry sentry(in);
     if (!sentry)
     {
         return in;
     }
-    return std::getline(in >> DelimetrIO{ '"' }, dest.ref, '"');
+    return std::getline(in >> DelimetrIO{'"'}, dest.ref, '"');
 }
 
 // перегрузка оператора ввода дл¤ структуры KeyIO
-std::istream& operator>>(std::istream& in, KeyIO&& dest)
+std::istream &operator>>(std::istream &in, KeyIO &&dest)
 {
     std::istream::sentry sentry(in);
     if (!sentry)
@@ -93,4 +95,3 @@ std::istream& operator>>(std::istream& in, KeyIO&& dest)
     }
     return in;
 }
-
