@@ -1,18 +1,21 @@
-#include "datastruct.hpp"
 #include <ostream>
+#include <cmath>
+#include <iomanip>
 
+#include "datastruct.hpp"
 #include "iofmtguard.hpp"
 
 bool ds::DataStruct::operator<(DataStruct const &other) const {
-    const auto abs_this_1 = std::abs(key1);
-    const auto abs_other_1 = std::abs(other.key1);
-    if (abs_this_1 != abs_other_1)
-        return abs_this_1 < abs_other_1;
+    double m1 = std::abs(key1);
+    double m2 = std::abs(other.key1);
+    if (std::abs(m1 - m2) > 1e-9)
+        return m1 < m2;
 
-    const auto abs_this_2 = key2.first / key2.second;
-    const auto abs_other_2 = other.key2.first / other.key2.second;
-    if (abs_this_2 != abs_other_2)
-        return abs_this_2 < abs_other_2;
+    if (key2.first * static_cast<long long>(other.key2.second) !=
+        other.key2.first * static_cast<long long>(key2.second)) {
+        return key2.first * static_cast<long long>(other.key2.second) <
+               other.key2.first * static_cast<long long>(key2.second);
+    }
 
     return key3.length() < other.key3.length();
 }
