@@ -10,15 +10,12 @@ int main() {
     using ds::DataStruct;
     std::vector<DataStruct> data;
 
-    std::copy(
-        std::istream_iterator<DataStruct>(std::cin),
-        std::istream_iterator<DataStruct>(),
-        std::back_inserter(data)
-    );
-
     while (!std::cin.eof()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (!std::cin) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
         std::copy(
             std::istream_iterator<DataStruct>(std::cin),
             std::istream_iterator<DataStruct>(),
